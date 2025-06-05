@@ -1,6 +1,7 @@
 const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
+require('dotenv').config();
 
 class GeckoboardAutomation {
     constructor() {
@@ -8,14 +9,19 @@ class GeckoboardAutomation {
         this.page = null;
         this.screenshotCounter = 1;
         
-        // Configuration
+        // Configuration - Load from environment variables
         this.config = {
-            email: 'taylor.potter@therealbrokerage.com',
-            password: 'RealTaylor!',
-            baseUrl: 'https://www.geckoboard.com',
-            headless: false, // Set to true to run without visible browser
-            timeout: 30000
+            email: process.env.GECKOBOARD_EMAIL || '',
+            password: process.env.GECKOBOARD_PASSWORD || '',
+            baseUrl: process.env.GECKOBOARD_BASE_URL || 'https://www.geckoboard.com',
+            headless: process.env.HEADLESS_MODE === 'true',
+            timeout: parseInt(process.env.TIMEOUT_MS) || 30000
         };
+        
+        // Validate required credentials
+        if (!this.config.email || !this.config.password) {
+            throw new Error('Missing required environment variables: GECKOBOARD_EMAIL and GECKOBOARD_PASSWORD must be set');
+        }
         
         this.logFile = path.join(__dirname, '..', 'automation-log.txt');
         this.initializeLog();

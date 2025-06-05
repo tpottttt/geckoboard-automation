@@ -6,15 +6,22 @@
   "scripts": {
     "test": "playwright test",
     "run": "node src/geckoboard-automation.js",
+    "explore": "node src/explore-geckoboard.js",
     "install-browsers": "playwright install"
   },
-  "keywords": ["playwright", "automation", "geckoboard", "zendesk"],
+  "keywords": [
+    "playwright",
+    "automation",
+    "geckoboard",
+    "zendesk"
+  ],
   "author": "Taylor Potter",
   "license": "MIT",
   "devDependencies": {
     "@playwright/test": "^1.40.0"
   },
   "dependencies": {
+    "dotenv": "^16.5.0",
     "playwright": "^1.40.0"
   }
-} 
+}
