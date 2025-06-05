@@ -1,0 +1,20 @@
+{
+  "name": "geckoboard-automation",
+  "version": "1.0.0",
+  "description": "Playwright automation for creating Geckoboard dashboards with Zendesk widgets",
+  "main": "src/geckoboard-automation.js",
+  "scripts": {
+    "test": "playwright test",
+    "run": "node src/geckoboard-automation.js",
+    "install-browsers": "playwright install"
+  },
+  "keywords": ["playwright", "automation", "geckoboard", "zendesk"],
+  "author": "Taylor Potter",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  },
+  "dependencies": {
+    "playwright": "^1.40.0"
+  }
+} 
