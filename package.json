@@ -7,6 +7,9 @@
     "test": "playwright test",
     "run": "node src/geckoboard-automation.js",
     "explore": "node src/explore-geckoboard.js",
+    "debug": "node src/debug-geckoboard.js",
+    "simple": "node src/simple-explore.js",
+    "cleanup": "node src/cleanup-dashboards.js",
     "install-browsers": "playwright install"
   },
   "keywords": [
